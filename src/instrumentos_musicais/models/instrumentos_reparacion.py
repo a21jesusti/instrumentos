@@ -10,3 +10,4 @@ class reparacion(models.Model):
     coste = fields.Float('Coste reparación', (6,2), default = 0.0)
 
     instrumento_ids = fields.Many2many('instrumentos.instrumento', string = 'Instrumentos')
+    empleado_id = fields.Many2one('hr.employee', string = 'Empleado')

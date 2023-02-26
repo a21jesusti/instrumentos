@@ -9,4 +9,5 @@ class tenda(models.Model):
     telefono = fields.Char('Teléfono contacto')
     
     instrumento_ids = fields.One2many('instrumentos.instrumento', 'tenda_id', string = 'Instrumentos')
+    empleado_ids = fields.One2many('hr.employee', 'tenda_id', string = 'Empleados')
 
