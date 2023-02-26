@@ -1,8 +1,9 @@
 from odoo import models, fields, api
 
 class instrumento(models.Model):
-    _name = "instrumentos_musicais.instrumento"
-    _description = "Permite definir un instrumento"
+    _name = 'instrumentos.instrumento'
+    _description = 'Permite definir un instrumento'
+    _order  = 'name'
 
     name = fields.Char('Instrumento', required = True)
     marca = fields.Char('Marca', required = True)
@@ -12,6 +13,11 @@ class instrumento(models.Model):
     coste = fields.Float('Prezo unidade', (6,1), default = 0.0, required = True)
     costeTotal  = fields.Float('Prezo Total', (9,1), compute = '_get_prezo')
     cantidad = fields.Integer('Cantidade', required = True, default = 0)
+
+    tenda_id = fields.Many2one('instrumentos.tenda', string = 'Tenda', required = True)
+    reparacion_ids = fields.Many2many('instrumentos.reparacion', string = 'Reparacións')
+
+    #Creamos o método _get_prezo para o campo computado costeTotal
 
     @api.depends('estado', 'coste')
     def _get_prezo(self):
