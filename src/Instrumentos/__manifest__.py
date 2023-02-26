@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "instrumentos_musicais",
+    'name': "Instrumentos Musicais",
 
     'summary': """Organiza as túas vendas de instrumentos/reparacións etc ...""",
 
@@ -30,4 +30,6 @@
     'demo': [
         'demo/demo.xml',
     ],
+    'installable': True,
+    'application': True,
 }

@@ -1,0 +1,125 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="instrumentos_musicais.list">
+      <field name="name">instrumentos_musicais list</field>
+      <field name="model">instrumentos_musicais.instrumentos_musicais</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+  <!-- Definición de menús -->
+    
+
+
+   
+
+
+    
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="instrumentos_musicais.action_server">
+      <field name="name">instrumentos_musicais server</field>
+      <field name="model_id" ref="model_instrumentos_musicais_instrumentos_musicais"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+    <menuitem name="instrumentos" id="instrumentos.menu_root"/>
+    
+
+    <!-- menu categories -->
+    
+    <record model="ir.actions.act_window" id="instrumentos.tenda_action_window">
+            <field name="name">Tendas</field>
+            <field name="res_model">instrumentos.tenda</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="instrumentos.instrumento_action_window">
+            <field name="name">instrumentos</field>
+            <field name="res_model">instrumentos.instrumento</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="instrumentos.reparacion_action_window">
+        <field name="name">Reparacións</field>
+        <field name="res_model">instrumentos.reparacion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--
+    <menuitem name="Empleados" id="instrumentos.empleado_menu" parent="instrumentos.menu_root"/>
+    -->
+    <menuitem name="Tendas" id="instrumentos.tenda_menu" parent="instrumentos.menu_root" action="instrumentos.tenda_action_window"/>
+        <record model="ir.ui.view" id="instrumentos.tenda_list_view">
+            <field name="name">instrumentos.tenda.view.tree</field>
+            <field name="model">instrumentos.tenda</field>
+            <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="direccion"/>
+                <field name="telefono"/>
+            </tree>
+            </field>
+        </record>
+
+        
+
+    <menuitem name="Instrumentos" id="instrumentos.instrumento_menu" parent="instrumentos.menu_root" action="instrumentos.instrumento_action_window"/>
+        <record model="ir.ui.view" id="instrumentos.instrumento_list_view">
+            <field name="name">instrumentos.instrumento.view.tree</field>
+            <field name="model">instrumentos.instrumento</field>
+            <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                 <field name="marca"/>
+                <field name="fabricado"/>
+                <field name="descripcion"/>
+                <field name="estado"/>
+                <field name="coste"/>
+                <field name="cantidad"/>
+                <field name="costeTotal"/>
+            </tree>
+            </field>
+        </record>
+
+        
+
+        <menuitem name="Reparacións" id="instrumentos.reparacion_menu" parent="instrumentos.menu_root" action="instrumentos.reparacion_action_window"/>
+        <record model="ir.ui.view" id="instrumentos.reparacion_list_view">
+            <field name="name">instrumentos.reparacion.view.tree</field>
+            <field name="model">instrumentos.reparacion</field>
+            <field name="arch" type="xml">
+            <tree>
+                <field name="fecha"/>
+                <field name="tipo"/>
+                <field name="coste"/>
+            </tree>
+            </field>
+        </record>
+
+        
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="instrumentos_musicais.menu_1_list" parent="instrumentos_musicais.menu_1"
+              action="instrumentos_musicais.action_window"/>
+    <menuitem name="Server to list" id="instrumentos_musicais" parent="instrumentos_musicais.menu_2"
+              action="instrumentos_musicais.action_server"/>
+-->
+  </data>
+</odoo>

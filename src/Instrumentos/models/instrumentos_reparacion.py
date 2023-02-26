@@ -5,7 +5,7 @@ class reparacion(models.Model):
     _description = 'Permite definir unha reparación dun instrumento'
     _order = 'fecha'
 
-    fecha = fields.Date('Fecha', default = fields.date.today)
+    fecha = fields.Date('Fecha', default = fields.date.today())
     tipo = fields.Selection(string = 'Tipo de reparación' , selection = [('l','Limpeza'),('b','Barniz'),('sp','Substitución Pezas'),('o','Outros')], required = True)
     coste = fields.Float('Coste reparación', (6,2), default = 0.0)
 
