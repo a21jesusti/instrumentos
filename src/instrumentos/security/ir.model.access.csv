@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_instrumentos_musicais_instrumentos_musicais,instrumentos_musicais.instrumentos_musicais,model_instrumentos_musicais_instrumentos_musicais,base.group_user,1,1,1,1
+access_instrumentos_tenda,instrumentos.tenda,model_instrumentos_tenda,base.group_user,1,1,1,1
+access_instrumentos_instrumento,instrumentos.instrumento,model_instrumentos_instrumento,base.group_user,1,1,1,1
+access_instrumentos_reparacion,instrumentos.reparacion,model_instrumentos_reparacion,base.group_user,1,1,1,1

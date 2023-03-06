@@ -12,6 +12,9 @@
             <field name="model">instrumentos.instrumento</field>
             <field name="arch" type="xml">
                 <tree>
+                    <header>
+                        <button name="delete_instrumento" string="Borrar instrumento" type="object"/>
+                    </header>
                     <field name="name"/>
                     <field name="marca"/>
                     <field name="fabricado"/>

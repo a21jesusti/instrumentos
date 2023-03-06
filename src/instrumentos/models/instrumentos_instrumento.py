@@ -30,6 +30,22 @@ class instrumento(models.Model):
                 instrumento.costeTotal = 0.0
 
 
+    #Tratamento dos rexistros por código
+
+    def delete_instrumento(self):
+        for instrumento in self:
+            instrumento.
+        record = self.env['instrumentos.instrumento'].delete()
+    
+    
+    def create_reparacion(self):
+        parent_reparacion_val = {
+            'tipo': 'b'
+        }
+
+        record = self.env['instrumentos.reparacion'].create(parent_reparacion_val)
+        return True
+
     
 
 

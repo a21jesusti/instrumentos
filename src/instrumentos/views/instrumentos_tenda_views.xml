@@ -15,6 +15,9 @@
                     <field name="name"/>
                     <field name="direccion"/>
                     <field name="telefono"/>
+                    <header>
+                        <button name="create_instrumento" string="Crear instrumento" type="object"/>
+                    </header>                    
                 </tree>
             </field>
         </record>
