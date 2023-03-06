@@ -25,6 +25,11 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/instrumentos_tenda_views.xml',
+        'views/instrumentos_instrumento_views.xml',
+        'views/instrumentos_reparacion_views.xml',
+        'views/instrumentos_empleado_views.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [

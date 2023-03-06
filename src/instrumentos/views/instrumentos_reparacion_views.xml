@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="instrumentos.reparacion_action_window">
+            <field name="name">Reparacións</field>
+            <field name="res_model">instrumentos.reparacion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Reparacións" id="instrumentos.reparacion_menu" parent="instrumentos.menu_root" action="instrumentos.reparacion_action_window"/>
+        <record model="ir.ui.view" id="instrumentos.reparacion_list_view">
+            <field name="name">instrumentos.reparacion.view.tree</field>
+            <field name="model">instrumentos.reparacion</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="fecha"/>
+                    <field name="tipo"/>
+                    <field name="coste"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

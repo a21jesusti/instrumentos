@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="instrumentos.instrumento_action_window">
+            <field name="name">instrumentos</field>
+            <field name="res_model">instrumentos.instrumento</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Instrumentos" id="instrumentos.instrumento_menu" parent="instrumentos.menu_root" action="instrumentos.instrumento_action_window"/>
+        <record model="ir.ui.view" id="instrumentos.instrumento_list_view">
+            <field name="name">instrumentos.instrumento.view.tree</field>
+            <field name="model">instrumentos.instrumento</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="marca"/>
+                    <field name="fabricado"/>
+                    <field name="descripcion"/>
+                    <field name="estado"/>
+                    <field name="coste"/>
+                    <field name="cantidad"/>
+                    <field name="costeTotal"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

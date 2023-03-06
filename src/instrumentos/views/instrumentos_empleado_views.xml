@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record model="ir.actions.act_window" id="instrumentos.empleado_action_window">
+            <field name="name">Empleados</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Empleados" id="instrumentos.empleado_menu" parent="instrumentos.menu_root" action="instrumentos.empleado_action_window"/>
+        <record model="ir.ui.view" id="instrumentos.empleado_list_view_extend">
+            <field name="name">instrumentos.empleado.view.tree</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="arch" type="xml">
+
+                <!-- Ocultamos os campos que non nos interesan para o noso módulo -->
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="delete">1</attribute>
+                </xpath>
+
+                <xpath expr="//tree/field[@name='parent_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='department_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="instrumentos.empleado_form_view_extend">
+            <field name="name">instrumentos.empleado.view.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <!-- Ocultamos os campos que non nos interesan para o noso módulo -->
+                <xpath expr="//group/group/field[@name='department_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//group/group/field[@name='parent_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//group/group/field[@name='coach_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page/div/div/group[@name='managers']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page/div/div/group[@name='managers']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//page/group/group[@name='work_permit']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page/div/div/group/field[@name='address_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page[@name='hr_settings']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page/div/div/group/field[@name='work_location']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!-- Engadimos os campos que nos interesan-->
+
+                <xpath expr="//notebook/page/div/div/group/field[@name='address_id']" position="after">
+                    <field name="tenda_id"/>
+                </xpath>
+                <xpath expr="//notebook/page/div/div/group/field[@name='tenda_id']" position="after">
+                    <field name="direccion"/>
+                </xpath>
+                <xpath expr="//notebook/page/div/div/group/field[@name='direccion']" position="after">
+                    <field name="reparacion_ids"></field>
+                </xpath>
+
+
+            </field>
+        </record>
+    </data>
+
+
+</odoo>
