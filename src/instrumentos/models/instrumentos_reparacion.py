@@ -9,5 +9,9 @@ class reparacion(models.Model):
     tipo = fields.Selection(string = 'Tipo de reparación' , selection = [('l','Limpeza'),('b','Barniz'),('sp','Substitución Pezas'),('o','Outros')], required = True)
     coste = fields.Float('Coste reparación', (6,2), default = 0.0)
 
-    instrumento_ids = fields.Many2many('instrumentos.instrumento', string = 'Instrumentos')
+    instrumento_id = fields.Many2one('instrumentos.instrumento', string = 'Instrumento', required = True)
+    #instrumento_ids = fields.Many2many('instrumentos.instrumento', string = 'Instrumentos')
     empleado_id = fields.Many2one('hr.employee', string = 'Empleado')
+
+
+   

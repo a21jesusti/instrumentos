@@ -14,8 +14,9 @@ class instrumento(models.Model):
     costeTotal  = fields.Float('Prezo Total', (9,1), compute = '_get_prezo')
     cantidad = fields.Integer('Cantidade', required = True, default = 0)
 
-    tenda_id = fields.Many2one('instrumentos.tenda', string = 'Tenda', required = True)
-    reparacion_ids = fields.Many2many('instrumentos.reparacion', string = 'Reparacións')
+    tenda_ids = fields.Many2many('instrumentos.tenda', string = 'Tenda', required = True)
+    reparacion_ids = fields.One2many('instrumentos.reparacion', 'instrumento_id', string = 'Reparacións')
+    #reparacion_ids = fields.Many2many('instrumentos.reparacion', string = 'Reparacións')
 
     #Creamos o método _get_prezo para o campo computado costeTotal
 
@@ -31,16 +32,11 @@ class instrumento(models.Model):
 
 
     #Tratamento dos rexistros por código
-
-    def delete_instrumento(self):
-        for instrumento in self:
-            instrumento.
-        record = self.env['instrumentos.instrumento'].delete()
-    
     
     def create_reparacion(self):
         parent_reparacion_val = {
-            'tipo': 'b'
+            'tipo': 'l',
+            'instrumento_id': self.env.context.get('active_id')
         }
 
         record = self.env['instrumentos.reparacion'].create(parent_reparacion_val)

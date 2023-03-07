@@ -17,6 +17,7 @@
                     <field name="telefono"/>
                     <header>
                         <button name="create_instrumento" string="Crear instrumento" type="object"/>
+                        <button name="delete_instrumentos" string="Borrar instrumentos" type="object"/>
                     </header>                    
                 </tree>
             </field>

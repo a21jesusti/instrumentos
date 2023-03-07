@@ -8,17 +8,23 @@ class tenda(models.Model):
     direccion = fields.Text('Direccion', required = True)
     telefono = fields.Char('Teléfono contacto')
     
-    instrumento_ids = fields.One2many('instrumentos.instrumento', 'tenda_id', string = 'Instrumentos')
+    instrumento_ids = fields.Many2many('instrumentos.instrumento', string = 'Instrumentos')
     empleado_ids = fields.One2many('hr.employee', 'tenda_id', string = 'Empleados')
 
     #Tratamento dos rexistros por código
 
     def create_instrumento(self):
+
         parent_instrumento_val = {
             'name': 'Proba Instrumento',
             'marca': 'Marca',
-            'tenda_id': 1
+            'tenda_ids': [self.env.context.get('active_id')]
             
         }
         record = self.env['instrumentos.instrumento'].create(parent_instrumento_val)
         return True
+    
+
+    def delete_instrumentos(self):
+        for tenda in self:
+            tenda.instrumento_ids.unlink()
