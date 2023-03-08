@@ -12,11 +12,14 @@ class instrumento(models.Model):
     estado = fields.Selection(string='Estado', selection = [('n','Novo'),('r','Reacondicionado'),('a', 'Averiado')],default = 'n', required = True)
     coste = fields.Float('Prezo unidade', (6,1), default = 0.0, required = True)
     costeTotal  = fields.Float('Prezo Total', (9,1), compute = '_get_prezo')
-    cantidad = fields.Integer('Cantidade', required = True, default = 0)
+    cantidad = fields.Integer('Cantidade', required = True, default = 1)
 
     tenda_ids = fields.Many2many('instrumentos.tenda', string = 'Tenda', required = True)
     reparacion_ids = fields.One2many('instrumentos.reparacion', 'instrumento_id', string = 'Reparacións')
-    #reparacion_ids = fields.Many2many('instrumentos.reparacion', string = 'Reparacións')
+
+    #Creamos un field para as fotos
+    imgInstrumento = fields.Binary('Imaxe')
+
 
     #Creamos o método _get_prezo para o campo computado costeTotal
 
@@ -41,6 +44,12 @@ class instrumento(models.Model):
 
         record = self.env['instrumentos.reparacion'].create(parent_reparacion_val)
         return True
+    
+    def delete_instrumento(self):
+        for instrumento in self:
+            if instrumento.id == self.env.context.get('active_id'):
+                instrumento.unlink()
+
 
     
 

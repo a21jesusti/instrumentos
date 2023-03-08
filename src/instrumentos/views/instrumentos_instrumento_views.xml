@@ -3,7 +3,7 @@
         <record model="ir.actions.act_window" id="instrumentos.instrumento_action_window">
             <field name="name">instrumentos</field>
             <field name="res_model">instrumentos.instrumento</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">kanban,tree,form</field>
         </record>
 
         <menuitem name="Instrumentos" id="instrumentos.instrumento_menu" parent="instrumentos.menu_root" action="instrumentos.instrumento_action_window"/>
@@ -12,7 +12,8 @@
             <field name="model">instrumentos.instrumento</field>
             <field name="arch" type="xml">
                 <tree>
-                    <header> 
+                    <header>
+                        <button name="delete_instrumento" string="Borrar instrumento" type="object"/>
                         <button name="create_reparacion" string="Crear reparación" type="object" />
                     </header>
                     <field name="name"/>
@@ -26,5 +27,50 @@
                 </tree>
             </field>
         </record>
+
+        <record id="instrumentos.instrumento_view_kanban" model="ir.ui.view">
+            <field name="name">instrumentos.instrumento.view.kanban</field>
+            <field name="model">instrumentos.instrumento</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="marca"/>
+                    <field name="descripcion"/>
+                    <field name="coste"/>
+                    <field name="imgInstrumento"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                <t t-if="record.imgInstrumento.raw_value">
+                                    <div class="o_kanban_image d-none d-md-block">
+                                        <img class="o_kanban_image_inner_pic" options="{'zoom': true, 'zoom_delay': 1000, 'background': true, 'preventClicks': false}" style="max-height: 85px;max-width: 75px" t-att-alt="record.id.value" t-att-src="kanban_image('instrumentos.instrumento', 'imgInstrumento', record.id.raw_value)"/>
+                                    </div>
+                                </t>
+        
+                                <div class="oe_kanban_details d-flex flex-column">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                    <ul>
+                                        <li>
+                                           Marca :  <field name="marca"/>
+                                        </li>
+                                        <li>
+                                           Descripción : <field name="descripcion"/>
+                                        </li>
+                                        <li>
+                                           Coste ud : <field name="coste"/>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
     </data>
 </odoo>
