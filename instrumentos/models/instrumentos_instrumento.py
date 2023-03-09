@@ -29,7 +29,11 @@ class instrumento(models.Model):
             if instrumento.estado == 'n':
                 instrumento.costeTotal = instrumento.coste * instrumento.cantidad
             elif instrumento.estado == 'r':
-                instrumento.costeTotal = instrumento.coste * 0.75 * instrumento.cantidad
+                costeReparacions = 0
+                for reparacion in self.reparacion_ids:
+                    costeReparacions += reparacion.coste
+
+                instrumento.costeTotal = instrumento.coste * 0.75 * instrumento.cantidad + costeReparacions
             elif instrumento.estado == 'a':
                 instrumento.costeTotal = 0.0
 
@@ -50,6 +54,7 @@ class instrumento(models.Model):
             if instrumento.id == self.env.context.get('active_id'):
                 instrumento.unlink()
 
+    
 
     
 

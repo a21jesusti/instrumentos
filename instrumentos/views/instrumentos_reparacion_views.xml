@@ -17,8 +17,10 @@
                 </header>
                     <field name="fecha"/>
                     <field name="tipo"/>
-                    <field name="coste"/>
+                    <field name="instrumento_id"/>
+                    <field name="empleado_id"/>
                     <field name="realizada"/>
+                    <field name="coste"/>
                 </tree>
             </field>
         </record>

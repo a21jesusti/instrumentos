@@ -11,8 +11,7 @@ class reparacion(models.Model):
     realizada = fields.Boolean('Realizada', default = False)
 
     instrumento_id = fields.Many2one('instrumentos.instrumento', string = 'Instrumento', required = True)
-    #instrumento_ids = fields.Many2many('instrumentos.instrumento', string = 'Instrumentos')
-    empleado_id = fields.Many2one('hr.employee', string = 'Empleado')
+    empleado_id = fields.Many2one('hr.employee', string = 'Empleado a cargo')
 
 
     def update_reparacionFecha(self):
