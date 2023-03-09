@@ -33,5 +33,5 @@ class tenda(models.Model):
 
     def delete_instrumentos(self):
         for tenda in self:
-            tenda.instrumento_ids.unlink()
+            tenda.instrumento_ids = [(5,0,0,0,0,0,0,0,0)]
     
