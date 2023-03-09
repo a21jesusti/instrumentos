@@ -11,9 +11,14 @@
             <field name="model">instrumentos.reparacion</field>
             <field name="arch" type="xml">
                 <tree>
+                <header>
+                    <button name="update_reparacionFecha" string="Modificar fecha reparación" type="object"/>
+                    <button name="update_reparacionRealizada" string="Modificar estado reparación" type="object"/>
+                </header>
                     <field name="fecha"/>
                     <field name="tipo"/>
                     <field name="coste"/>
+                    <field name="realizada"/>
                 </tree>
             </field>
         </record>

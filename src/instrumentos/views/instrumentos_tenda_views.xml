@@ -16,10 +16,32 @@
                     <field name="direccion"/>
                     <field name="telefono"/>
                     <header>
+                        <button name="delete_tenda" string="Borrar tenda" type="object" />
                         <button name="create_instrumento" string="Crear instrumento" type="object"/>
-                        <button name="delete_instrumentos" string="Borrar instrumentos" type="object"/>
-                    </header>                    
+                    </header>
                 </tree>
+            </field>
+        </record>
+
+        <record id="instrumentos.tenda_view_form" model="ir.ui.view">
+            <field name="name">instrumentos.tenda.view.form</field>
+            <field name="model">instrumentos.tenda</field>
+            <field name="arch" type="xml">
+                <form string="Información da tenda">
+                    <header>
+                    <button name="delete_instrumentos" string="Borrar instrumentos" type="object" class="btn-primary" confirm="Estás seguro de que queres eliminar todolos instrumentos relacionados con esta tenda ?"/>
+                    </header>
+                    <sheet>
+                        <separator string="Información da tenda"/>
+                            <group>
+                                <field name="name" style="width:85%%"/>
+                                <field name="direccion" style="width:85%%"/>
+                                <field name="telefono" style="width:85%%"/>
+                                <field name="instrumento_ids" style="width:85%%"/>
+                                <field name="empleado_ids" style="width:85%%"/>
+                            </group>
+                    </sheet>
+                </form>
             </field>
         </record>
     </data>

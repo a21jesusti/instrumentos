@@ -1,4 +1,7 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+
+
 
 class tenda(models.Model):
     _name = "instrumentos.tenda"
@@ -18,13 +21,17 @@ class tenda(models.Model):
         parent_instrumento_val = {
             'name': 'Proba Instrumento',
             'marca': 'Marca',
-            'tenda_ids': [self.env.context.get('active_id')]
-            
+            'tenda_ids': [self.env.context.get('active_id')]   
         }
         record = self.env['instrumentos.instrumento'].create(parent_instrumento_val)
         return True
     
 
+    def delete_tenda(self):
+        self.ensure_one()
+        self.unlink()
+
     def delete_instrumentos(self):
         for tenda in self:
             tenda.instrumento_ids.unlink()
+    

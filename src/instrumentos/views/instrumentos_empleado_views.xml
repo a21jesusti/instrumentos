@@ -27,6 +27,10 @@
                     <attribute name="invisible">1</attribute>
                 </xpath>
 
+                <xpath expr="//tree/field[@name='job_id']" position="after">
+                    <field name="tenda_id"/>
+                </xpath>
+                
             </field>
         </record>
 
@@ -72,6 +76,27 @@
                 <xpath expr="//notebook/page/div/div/group/field[@name='work_location']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
+                
+                <xpath expr="//notebook/page/group/group[position() > 2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page/group/group[position() > 3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page/group/group[position() = 7]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <xpath expr="//sheet/div/field[@name='category_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//header/button[position() = 1]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
 
                 <!-- Engadimos os campos que nos interesan-->
 
