@@ -1,7 +1,6 @@
 # Modulo Instrumentos
 
 ## Descricion funcionalidade/obxectivos do módulo 
-#
 
 ### Funcionalidade
 A funcionalidade deste módulo é a de crear tendas (relacionadas co ámbito da música), dentro destas gardaremos instrumentos, ditos instrumentos poderán ter reparacións e ditas reparacións poderanas realizar empleados das tendas.
@@ -14,7 +13,7 @@ Tamén en cada instrumentos poderás saber se tivo algunha reparación e quen re
 <br></br>
 
 ## Instruccións para o uso do módulo Instrumentos
-#
+
 En total no módulo teremos 4 lapelas : 
 
 * Tendas : Onde se crearán/gardarán as tendas. Amosaranse en vista de tipo árbore todas as creadas polo momento, se lle damos a "Crear" apareceranos unha vista formulario para meter os respectivos datos (Será o mesmo para as seguintes lapelas).
